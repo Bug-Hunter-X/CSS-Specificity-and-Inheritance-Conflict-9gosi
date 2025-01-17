@@ -1,0 +1,19 @@
+The following CSS code snippet demonstrates an uncommon issue related to specificity and inheritance:
+
+```css
+div {
+  color: blue;
+}
+
+p {
+  color: red;
+}
+
+div p {
+  color: green; /* This rule is more specific, but unexpectedly, the text is still blue */
+}
+```
+
+The expected behavior is that the text within a `<p>` element nested inside a `<div>` should be green due to the higher specificity of `div p`.  However, if the `<p>` element is styled elsewhere, like in the second rule with `color:red;`, then the browser may apply this rule before the more specific rule `div p`, resulting in blue text.
+
+This demonstrates a quirk of CSS inheritance and specificity where a less specific selector with later declaration can sometimes override a more specific one if it targets the same inherited property.
