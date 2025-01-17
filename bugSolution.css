@@ -1,0 +1,39 @@
+The solution involves adjusting the order of CSS rules or increasing the specificity of the intended rule to ensure it takes precedence. Here are two approaches:
+
+**Approach 1:  Increase Specificity**
+
+```css
+div {
+  color: blue;
+}
+
+p {
+  color: red;
+}
+
+div > p {
+  color: green; /* Using the child selector `>` increases specificity */
+}
+```
+
+This approach makes `div > p` more specific by ensuring that the `<p>` element is a direct child of the `<div>`.
+
+**Approach 2: Rule Ordering (Less Reliable):**
+
+Though less reliable, declaring the `div p` rule *before* the `p` rule can sometimes achieve the intended result.  However, this approach is fragile and less maintainable:
+
+```css
+div p {
+  color: green;
+}
+
+div {
+  color: blue;
+}
+
+p {
+  color: red;
+}
+```
+
+It's generally recommended to prefer Approach 1 (increasing specificity) to ensure predictable and maintainable CSS.
